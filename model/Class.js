@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const classScema = mongoose.Schema({
-    classCode:{type:String, required: true},
+    classCode:{type:String, required: true, unique: true},
     students:[
         {
             type:mongoose.Schema.Types.ObjectId,

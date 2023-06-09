@@ -4,6 +4,13 @@ exports.createClass= async(req, res)=>{
     try {
         const{classCode}= req.body;
         // console.log(classCode);
+        const isExist = await Class.findOne({classCode});
+        if(isExist){
+            return res.status(400).json({
+                success:false,
+                message:"class code already present"
+            })
+        } 
         if(!classCode){
             return res.status(400).json({
                 success:false,
