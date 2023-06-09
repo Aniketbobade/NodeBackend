@@ -6,7 +6,9 @@ const {createStudent,
         studentLogin,
         getAssigmnent,
         submitAssignment}= require("../controller/StudentController");
-const {createClass}= require("../controller/ClassController");
+
+const {createClass, getClassList, getStudentList}= require("../controller/ClassController");
+
 const {createTeacher
      ,teacherLogin, 
       createAssignment, 
@@ -18,6 +20,8 @@ const {isAuth, isStudent, isTeacher} = require("../middleware/auth");
 
 // all below class routes
 router.post("/class/createClass", createClass);
+router.get("/class/getClassList", getClassList);
+router.get("/class/studentsList", getStudentList);
 
 
 // all below Student

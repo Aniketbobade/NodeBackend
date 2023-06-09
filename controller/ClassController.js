@@ -31,3 +31,41 @@ exports.createClass= async(req, res)=>{
         })
     }
 }
+
+exports.getClassList= async(req, res)=>{
+    try {
+        const list= await Class.find({}).select('classCode').exec();
+        return res.status(200).json({
+            success:true,
+            list:list
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success:false,
+            message:"something went wrong",
+            error:error
+        })
+    }
+}
+
+exports.getStudentList= async(req, res)=>{
+    try {
+        const {classCode}= req.body;
+        if(!classCode){
+            return res.status(401).json({
+                success:false,
+                message:"Please provide classCode"
+            })
+        }
+        const list = await Class.find({classCode:classCode}).select('students').populate({
+            path:"students",
+            select:'firstName lastName emailId'
+        });
+        return res.status(200).json({
+            success:true,
+            list:list
+        })
+    } catch (error) {
+        
+    }
+}

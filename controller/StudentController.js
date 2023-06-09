@@ -15,18 +15,27 @@ exports.createStudent = async (req, res) => {
                 message: "all fields requied"
             });
         }
+        const isExist = await Student.findOne({email:email});
 
+         if(isExist){
+            return res.status(400).json({
+                success:true,
+                message:"you email already register"
+            })
+         }
 
         const classId = await Class.findOne({ classCode: classCode });
-
-        const getLastRollNo = await Student.findOne({ _id: classCode._id }).sort('-rollNo').exec();
+        console.log("this is class id",classId);
+        const getLastRollNo = await Student.findOne({ classId: classId._id }).sort('-rollNo').exec();
+        // console.log(getLastRollNo);
         let maxRollno;
+        
         if (getLastRollNo === null) {
             maxRollno = 1;
         } else {
             maxRollno = getLastRollNo.rollNo + 1;
         }
-
+        // console.log(maxRollno);
         const hashPassword = await bcrypt.hash(password, 10);
         const studentDetails = await Student.create({
             firstName,
@@ -38,9 +47,10 @@ exports.createStudent = async (req, res) => {
         });
         const addToClassList = await Class.findOneAndUpdate(
             { classCode },
-            { $set: { students: studentDetails._id } },
+            { $push: { students: studentDetails._id } },
             { new: true }
         );
+        // console.log(addToClassList);
         return res.status(200).json({
             success: true,
             message: "Account create successfully",

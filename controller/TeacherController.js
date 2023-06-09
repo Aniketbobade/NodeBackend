@@ -146,7 +146,7 @@ exports.addClass = async(req ,res)=>{
             // console.log("inside map", test);
             const addToClassList= await Class.findOneAndUpdate(
                 {classCode:test},
-                {$set: {teachers:result._id}},
+                {$push: {teachers:result._id}},
                 {new:true}
             )
             console.log(addToClassList);
