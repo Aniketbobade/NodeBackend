@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "dbeac044-bde2-40bf-9de6-75fa9769b2fb",
+		"name": "School management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "class",
+			"item": [
+				{
+					"name": "create class",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"classCode\":\"Science B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nodejsbackend-9uk8.onrender.com/api/class/createClass",
+							"protocol": "https",
+							"host": [
+								"nodejsbackend-9uk8",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"class",
+								"createClass"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list of class",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "List of Students for class",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "create student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Aniket\",\r\n    \"lastName\":\"Bobade\",\r\n    \"email\":\"Aniket@mgail.com\",\r\n    \"password\":\"12345@11\",\r\n    \"classCode\":\"Science A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nodejsbackend-9uk8.onrender.com/api/student/createStudent",
+							"protocol": "https",
+							"host": [
+								"nodejsbackend-9uk8",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"student",
+								"createStudent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"Aniket@mgail.com\",\r\n    \"password\":\"12345@11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nodejsbackend-9uk8.onrender.com/api/student/login",
+							"protocol": "https",
+							"host": [
+								"nodejsbackend-9uk8",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"student",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get assignmnent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://nodejsbackend-9uk8.onrender.com/api/student/assignment",
+							"protocol": "https",
+							"host": [
+								"nodejsbackend-9uk8",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"student",
+								"assignment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "submit assignment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"assignmentId\":\"6482db4993e0c55a2ece124a\",\r\n    \"answerList\":[\"answer one\",\"answer two\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nodejsbackend-9uk8.onrender.com/api/student/submitAssignment",
+							"protocol": "https",
+							"host": [
+								"nodejsbackend-9uk8",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"student",
+								"submitAssignment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "create Teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Virat\",\r\n    \"lastName\":\"Kohli\",\r\n    \"email\":\"viratKohli@gmail.com\",\r\n    \"password\":\"123\",\r\n    \"subject\":\"physics\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nodejsbackend-9uk8.onrender.com/api/teacher/createTeacher",
+							"protocol": "https",
+							"host": [
+								"nodejsbackend-9uk8",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"teacher",
+								"createTeacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"viratKohli@gmail.com\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nodejsbackend-9uk8.onrender.com/api/teacher/login",
+							"protocol": "https",
+							"host": [
+								"nodejsbackend-9uk8",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"teacher",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Assignment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"classes\":[\"6482da8d93e0c55a2ece1230\",\"6482da9693e0c55a2ece1232\"],\r\n    \"listOfQuestions\":[\"how are you?\",\"what is your name?\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nodejsbackend-9uk8.onrender.com/api/teacher/createAssignment",
+							"protocol": "https",
+							"host": [
+								"nodejsbackend-9uk8",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"teacher",
+								"createAssignment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add class",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"classCode\":[\"Science A\",\"Science B\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nodejsbackend-9uk8.onrender.com/api/teacher/addClass",
+							"protocol": "https",
+							"host": [
+								"nodejsbackend-9uk8",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"teacher",
+								"addClass"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSubmitted list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"assignmentId\":\"6482db4993e0c55a2ece124a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nodejsbackend-9uk8.onrender.com/api/teacher/getList",
+							"protocol": "https",
+							"host": [
+								"nodejsbackend-9uk8",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"teacher",
+								"getList"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
