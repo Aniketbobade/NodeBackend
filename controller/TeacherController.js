@@ -2,7 +2,6 @@ const Teacher = require("../model/Teacher");
 const generateCode= require("../functions/basicFunctions");
 const bcrypt= require("bcrypt");
 const jwt= require("jsonwebtoken");
-const { use } = require("../routes/Routes");
 const Assignment = require("../model/Assignment");
 const Class = require("../model/Class");
 const SubmitAssignment = require("../model/SubmitAssignment");
