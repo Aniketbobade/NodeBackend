@@ -18,6 +18,11 @@ const {createTeacher
 // middleware 
 const {isAuth, isStudent, isTeacher} = require("../middleware/auth");
 
+// server route
+router.get("/", (req, res) => {
+        res.send('Hello from server')
+    })
+
 // all below class routes
 router.post("/class/createClass", createClass);
 router.get("/class/getClassList", getClassList);
@@ -36,5 +41,12 @@ router.get("/teacher/login", teacherLogin);
 router.post("/teacher/addClass",isAuth, isTeacher, addClass);
 router.get("/teacher/createAssignment", isAuth,isTeacher, createAssignment);
 router.get("/teacher/getList", isAuth,isTeacher, getAllSubmitAssignment);
+
+router.all('*', (req, res) => {
+        return res.status(404).jsonp({
+            status: 404,
+            message: "Not Found"
+        })
+    })
 
 module.exports= router;
