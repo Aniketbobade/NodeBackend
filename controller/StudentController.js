@@ -25,7 +25,7 @@ exports.createStudent = async (req, res) => {
          }
 
         const classId = await Class.findOne({ classCode: classCode });
-        console.log("this is class id",classId);
+        // console.log("this is class id",classId);
         const getLastRollNo = await Student.findOne({ classId: classId._id }).sort('-rollNo').exec();
         // console.log(getLastRollNo);
         let maxRollno;
