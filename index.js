@@ -13,5 +13,5 @@ app.use(morgan('dev'))
 app.use("/api", Routes);
 
 app.listen(process.env.PORT, ()=>{
-    console.log(`App started on port ${process.env.PORT}`)
+    console.log(`App started on port ${process.env.PORT} in PROD`)
 })
